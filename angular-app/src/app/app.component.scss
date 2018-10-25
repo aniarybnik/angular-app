@@ -1,0 +1,33 @@
+.form-control {
+
+  width: 500px;
+  height: 25px;
+  border-radius:10px;
+  display:inline-block;
+}
+
+.colorClass {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 20px;
+  padding: 20px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+.btn-outline-secondary{
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+
+.artykulyPunkty {
+  display: flex;
+  justify-content: space-around;
+}
+
+.plusMinus{
+  width: 20px;
+  height: 20px;
+}
