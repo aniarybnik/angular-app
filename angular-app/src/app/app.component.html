@@ -1,62 +1,36 @@
+<app-test [t]="1"></app-test>
+<app-test [t]="1"></app-test>
+<app-test [t]="1"></app-test>
+
+<app-test [t]="1"></app-test>
+<app-test [t]="1"></app-test>
 <div class = "container">
-<br>
-  <p [className]="'colorClass'"> {{title}} </p>
+
+  <p> {{title}} </p>
 
   <div class = "formularzform">
 
-      <input  [(ngModel)]='tytul' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tytuł">
-      <br>
-      <br>
-      <input  [(ngModel)]= 'strona' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Link">
-      <br>
-      <br>
-      <button (click)='dodaj()' type="button" class="btn btn-outline-secondary" > Dodaj</button>
+    <form [formGroup] = "form">
+        <input formControlName="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tytuł">
 
+        <input formControlName="link" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Link">
+
+        <button (click)='dodaj()' [disabled]="!form.valid" type="button" class="btn btn-outline-secondary" > Dodaj</button>
+    </form>
 
   </div>
 </div>
 
 
-<br>
-<br>
+<div>
+  <div class = "article" *ngFor="let link of sort()">
 
-<div class='artykulyPunkty'>
+    {{link.title}}
+    <a href={{link.link}} target = "_blank" >{{link.link}}</a>
+    {{link.point}}
 
-    <div>
-      <p [className]="'colorClass'">Tytuł: </p>
-        <ul style="list-style: none;">
-          <li *ngFor = 'let k of listaTytul'>
-            {{k}}
-          </li>
-        </ul>
-    </div>
-
-    <div>
-      <p [className]="'colorClass'" >Link:</p>
-      <ul style="list-style: none;">
-          <li *ngFor = 'let j of listaLinkow'>
-
-              <a target="_blank" href={{j}}>{{j}}</a>
-
-          </li>
-      </ul>
-    </div>
-
-
-    <div>
-      <p [className]="'colorClass'">Punkty:</p>
-      <ul style="list-style: none;">
-          <li *ngFor = 'let z of licznik; let i = index'>
-              <button  type="button" class="btn btn-secondary" (click) = 'plus(i)'> + </button>
-              &nbsp;
-              <button  type="button" class="btn btn-secondary" (click) = 'minus(i)'> - </button>
-              &nbsp;&nbsp;&nbsp;
-              {{z}}
-
-          </li>
-      </ul>
-
-    </div>
-
+    <button (click)='plus(link)' type="button" class="plusMinus btn btn-outline-secondary" > + </button>
+    <button (click)='minus(link)' type="button" class="plusMinus btn btn-outline-secondary" > -</button>
 
   </div>
+</div>
